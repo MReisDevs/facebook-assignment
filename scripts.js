@@ -3,7 +3,7 @@ window.addEventListener("load", function(){
   // like button
   var likeButton = document.getElementsByClassName('action action--like')[0];
 
-  likeButton.addEventListener("click", function(){
+  likeButton.addEventListener("click", function(event){
   if (likeButton.innerHTML==="Like"){
     likeButton.innerHTML = "Unlike"
 
@@ -24,7 +24,7 @@ window.addEventListener("load", function(){
   // main comment box 
   var commentButton = document.getElementsByClassName('action action--comment')[0];
 
-  commentButton.addEventListener("click", function(){
+  commentButton.addEventListener("click", function(event){
     var comment_box = document.getElementsByTagName("textarea")[5];
     comment_box.focus();
     event.preventDefault();
@@ -34,7 +34,7 @@ window.addEventListener("load", function(){
 
   var display_reply = document.getElementsByClassName("comment__info");
   for (var i=0; i< display_reply.length; i++) {
-      display_reply[i].childNodes[3].addEventListener("click", function(){
+      display_reply[i].childNodes[3].addEventListener("click", function(event){
         var replies = event.target.parentNode.parentNode.childNodes[5];
       if (replies.style.display == "none"){
         replies.style.display = "block"}
@@ -59,7 +59,14 @@ window.addEventListener("load", function(){
 
   });
   //Poster info
-
+  var userButton = document.getElementsByClassName("name");
+  for (var i=0; i< userButton.length; i++) {
+    userButton[i].addEventListener("click", function(event){
+    modal.style.display = "block"
+    modalTitle.innerHTML = event.target.innerHTML
+    modalBody.innerHTML = "Number of friends: " + (Math.floor(Math.random() * 1200) + 10) + "  Mutual Friends: 0" 
+    })
+  }
 
   //Close modal
   // with X button
@@ -68,7 +75,7 @@ window.addEventListener("load", function(){
     modal.style.display = "none"
     });
   // Clicking outside window
-  window.addEventListener("click", function(){
+  window.addEventListener("click", function(event){
     if (event.target == modal) {
         modal.style.display = "none";}
   })

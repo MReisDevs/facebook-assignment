@@ -21,7 +21,7 @@ The overall goal is to implement features that listen for user actions that trig
 - show the replies area for that comment
 - toggle the behavior of the link so that if it's clicked again, it hides the replies area
 
-### Submitting a comment form should...
+### **Submitting a comment form should...**
 
 - raise an `alert()` error if nothing has been typed into the textarea
 - update the number of comments/replies
