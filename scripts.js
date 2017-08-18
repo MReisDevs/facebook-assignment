@@ -36,7 +36,6 @@ window.addEventListener("load", function(){
   for (var i=0; i< display_reply.length; i++) {
       display_reply[i].childNodes[3].addEventListener("click", function(){
         var replies = event.target.parentNode.parentNode.childNodes[5];
-debugger
       if (replies.style.display == "none"){
         replies.style.display = "block"}
       else {
@@ -44,5 +43,36 @@ debugger
       event.preventDefault();
       });
     };
+
+  //Modal vars
+  var modal = document.getElementsByClassName("modal")[0];
+  var modalBody = document.getElementsByClassName("modal__body")[0];
+  var modalTitle = document.getElementsByClassName("modal__title")[0];
+  //Share button
+  var shareButton = document.getElementsByClassName("action action--share")[0];
+  shareButton.addEventListener("click", function(){
+      var posterName = document.getElementsByClassName("postername")[0].innerHTML
+      var shareText = document.getElementsByClassName("post__body")[0].innerHTML 
+        modal.style.display = "block"
+        modalTitle.innerHTML = "Share "+ posterName + "'s Post"
+        modalBody.innerHTML = shareText + "\n \n Share this with your friends!"
+
+  });
+  //Poster info
+
+
+  //Close modal
+  // with X button
+  var xoutModal = document.getElementsByClassName("modal__close")[0]
+    xoutModal.addEventListener("click", function(){
+    modal.style.display = "none"
+    });
+  // Clicking outside window
+  window.addEventListener("click", function(){
+    if (event.target == modal) {
+        modal.style.display = "none";}
+  })
+  //
+
 
 });
